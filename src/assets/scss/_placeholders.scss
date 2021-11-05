@@ -1,0 +1,8 @@
+%Icon {
+  transition: all 250ms ease;
+
+  &:before {
+    font-family: $bsb-font-family;
+    transition: all 250ms ease;
+  }
+}

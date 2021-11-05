@@ -1,0 +1,30 @@
+@import '../../assets/scss/variables';
+
+.Container {
+  position: absolute;
+  width: 1.5rem;
+  aspect-ratio: 1;
+  transform: rotate(45deg);
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    height: 0.2rem;
+    width: 1rem;
+    background-color: $light-color;
+  }
+
+  &:before {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  &:after {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}

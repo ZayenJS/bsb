@@ -1,0 +1,40 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/placeholders';
+
+.Container {
+  background-color: $dark-color;
+  color: $light-color;
+  padding: 1rem 0;
+
+  ul {
+    @include flex(center);
+    max-width: 1420px;
+    width: 100%;
+    margin: auto;
+    gap: 2rem;
+  }
+}
+
+.Facebook {
+  @extend %Icon;
+  &:hover:before {
+    color: darken($light-color, 10%);
+  }
+
+  &:before {
+    content: $facebook;
+    color: $light-color;
+  }
+}
+
+.Instagram {
+  @extend %Icon;
+  &:hover:before {
+    color: darken($light-color, 10%);
+  }
+
+  &:before {
+    content: $instagram;
+    color: $light-color;
+  }
+}

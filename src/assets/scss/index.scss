@@ -1,0 +1,14 @@
+@import './reset';
+@import './variables';
+@import 'fonts';
+
+:root,
+body,
+#root {
+  min-height: 100vh;
+}
+
+html {
+  font-family: 'Libre Baskerville', Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}

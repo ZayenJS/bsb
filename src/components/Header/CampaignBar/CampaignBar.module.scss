@@ -1,0 +1,16 @@
+@import '../../../assets/scss/variables';
+
+.Container {
+  @include flex(center, center);
+  background-color: $main-color;
+  height: $campaign-bar-height;
+  color: $light-color;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.Cross {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  right: 1rem;
+}
