@@ -1,0 +1,32 @@
+@import '../../../../../assets/scss/variables';
+
+.Container {
+  p,
+  li {
+    text-align: center;
+    font-size: 1rem;
+    padding: 1.5rem 0;
+    line-height: 1.75;
+    color: $grey-color;
+  }
+
+  p {
+    padding-top: 0;
+  }
+
+  ul {
+    margin: 2rem 0;
+
+    li {
+      padding: 0;
+    }
+  }
+}
+
+.Image_Container {
+  text-align: center;
+
+  img {
+    max-width: 100%;
+  }
+}

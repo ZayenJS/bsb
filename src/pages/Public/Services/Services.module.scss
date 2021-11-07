@@ -1,5 +1,18 @@
-// @import "path_to_file";
+@import '../../../assets/scss/variables';
 
 .Container {
-	/* your styles here... */
+  section {
+    max-width: $max-container-width;
+    margin: auto;
+  }
+
+  figure {
+    max-width: $max-container-width;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../../../assets/images/services/main-image.jpeg');
+    width: 100%;
+    aspect-ratio: 21/9;
+    margin: auto;
+  }
 }

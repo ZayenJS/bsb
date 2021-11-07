@@ -1,0 +1,20 @@
+@import '../../../../assets/scss/variables';
+
+.Container {
+  h1 {
+    margin-top: 2rem;
+  }
+
+  h3 {
+    margin: 2rem 0;
+    color: $dark-color;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1rem;
+    padding: 1.5rem 0;
+    line-height: 1.75;
+    color: $grey-color;
+  }
+}
