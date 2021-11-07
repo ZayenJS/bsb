@@ -1,0 +1,26 @@
+@import '../../../assets/scss/variables';
+
+.Container {
+  /* your styles here... */
+}
+
+.Image {
+  @include flex(center, center, column nowrap);
+  height: 85vh;
+  background-color: #5d4e3f;
+  background-image: url('../../../assets/images/contact/chair.webp');
+  background-position: center;
+  background-size: cover;
+
+  div {
+    @include flex(center, center, column nowrap);
+    gap: 2rem;
+  }
+
+  a {
+    color: $light-color;
+    padding: 1rem 3rem;
+    border-radius: 20rem;
+    border: 2px solid;
+  }
+}
