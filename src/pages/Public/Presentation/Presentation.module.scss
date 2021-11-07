@@ -1,0 +1,12 @@
+@import '../../../assets/scss/variables';
+
+.Container {
+  section {
+    max-width: $max-container-width;
+    margin: auto;
+
+    &:first-child {
+      padding-top: 4rem;
+    }
+  }
+}

@@ -1,1 +1,1 @@
-export { templateMiddleware } from './middleware.template'
+export default '';

@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-/* import your reducers here */
-import template, { templateReducerState } from './reducer.template';
-export interface State {
-  template: templateReducerState;
-};
 
-const reducer = combineReducers({ template });
+import contact, { ContactReducerState } from './contact.reducer';
+
+export interface State {
+  contact: ContactReducerState;
+}
+
+const reducer = combineReducers({ contact });
 
 export default reducer;
