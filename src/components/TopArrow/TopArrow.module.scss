@@ -1,0 +1,45 @@
+@import '../../assets/scss/variables';
+
+.Container {
+  @include flex(center, center);
+  position: fixed;
+  right: 1rem;
+  bottom: -10rem;
+  transition: all 250ms ease;
+  width: 4rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  background-color: $light-color;
+  outline: 2px solid transparent;
+
+  &:before {
+    font-family: $bsb-font-family;
+    content: $arrow-up;
+    font-size: 1.5rem;
+    transform: rotate(-180deg);
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline: 2px solid black;
+  }
+}
+
+.Visible {
+  bottom: 1rem;
+
+  &::before {
+    animation: rotate-180 250ms 50ms 1 forwards ease-in-out;
+  }
+}
+
+@keyframes rotate-180 {
+  from {
+    transform: rotate(-180deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}

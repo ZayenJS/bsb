@@ -1,12 +1,13 @@
 @import '../../assets/scss/variables';
 
 .Container {
-  position: relative;
+  // position: fixed;
+  // top: 0;
+  // width: 100%;
+  // z-index: 2000;
 }
 
 .Content_Container {
-  position: sticky;
-  top: 0;
   background-color: $light-color;
   padding: 1rem 0;
   box-shadow: 1px 2px 2px transparentize($dark-color, 0.9);

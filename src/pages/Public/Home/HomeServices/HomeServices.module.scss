@@ -1,0 +1,45 @@
+@import '../../../../assets/scss/variables';
+
+.Container {
+  h2 {
+    font-weight: bolder;
+    margin-bottom: 0;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1rem;
+    padding: 1.5rem 0;
+    line-height: 1.75;
+    color: $grey-color;
+  }
+}
+
+.Carousel {
+  width: 30rem;
+  height: auto;
+  aspect-ratio: 16/9;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 6rem;
+
+  @for $i from 1 to 4 {
+    div:nth-child(#{$i}) {
+      .Carousel_Image {
+        background-image: url('../../../../assets/images/home/carousel-services-#{$i}.jpg');
+      }
+    }
+  }
+}
+
+.Carousel_Image {
+  @include flex(center, center, column nowrap);
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  > a {
+    display: block;
+  }
+}

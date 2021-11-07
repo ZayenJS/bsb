@@ -1,0 +1,105 @@
+@import '../../assets/scss/variables';
+
+%Input {
+  padding: 1rem;
+  border: none;
+  border-top: 1px solid $main-color;
+  border-left: 1px solid $main-color;
+  border-right: 1px solid $main-color;
+  border-radius: $medium-radius;
+  border-bottom: 4px solid $main-color;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+  color: $dark-color;
+  font-size: 1.25rem;
+  width: inherit;
+}
+
+%Input_Container_WithAnimated_Label {
+  width: 100%;
+  position: relative;
+  margin: 2rem 0;
+
+  input {
+    @extend %Input;
+
+    &:placeholder-shown + label {
+      font-size: 1em;
+      bottom: 50%;
+      transform: translateY(50%);
+      left: 0.5rem;
+    }
+
+    &:focus-visible,
+    &:not(:placeholder-shown) {
+      border-color: $main-color;
+    }
+
+    &:focus-visible + label,
+    &:not(:placeholder-shown) + label {
+      bottom: 100%;
+      left: 0;
+      font-size: 1em;
+      transform: translateY(-25%);
+      color: $light-green;
+    }
+
+    &.Error {
+      border-color: $red;
+    }
+  }
+
+  label {
+    position: absolute;
+    pointer-events: none;
+    transition: all 175ms ease-in;
+  }
+}
+
+.Container {
+  @extend %Input_Container_WithAnimated_Label;
+
+  textarea {
+    @extend %Input;
+    resize: none;
+    min-height: 15rem;
+
+    & + label {
+      transition: all 300ms ease-in;
+    }
+
+    &:placeholder-shown + label {
+      font-size: 1em;
+      bottom: 2rem;
+      transform: translateY(50%);
+      left: 0.5rem;
+    }
+
+    &:focus-visible,
+    &:not(:placeholder-shown) {
+      border-color: $main-color;
+    }
+
+    &:focus-visible + label,
+    &:not(:placeholder-shown) + label {
+      bottom: 100%;
+      left: 0;
+      font-size: 1em;
+      transform: translateY(-25%);
+      color: $light-green;
+    }
+
+    &.Error {
+      border-color: $red;
+    }
+  }
+}
+
+span.Error {
+  @include flex(center, center);
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: $medium-radius;
+  background-color: transparentize($red, 0.75);
+  color: $red;
+  border: 2px solid transparentize($red, 0.75);
+}

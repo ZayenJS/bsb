@@ -1,0 +1,48 @@
+@import '../../../../assets/scss/variables';
+
+.Container {
+}
+
+.Subtitle {
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.Images {
+  @include flex(stretch, center, column nowrap);
+  gap: 2rem;
+  width: 100%;
+
+  @include lg {
+    flex-direction: row;
+  }
+
+  figure {
+    width: 100%;
+  }
+
+  figcaption {
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+
+  article {
+    width: 100%;
+
+    @for $i from 1 to 4 {
+      &:nth-child(#{$i}) {
+        figure div {
+          height: 29rem;
+          width: inherit;
+          aspect-ratio: inherit;
+          background-size: cover;
+          background-position: top;
+          background-image: url('../../../../assets/images/home/heading-image-#{$i}.jpeg');
+        }
+      }
+    }
+  }
+}

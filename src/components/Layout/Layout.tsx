@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import TopArrow from '../TopArrow/TopArrow';
 
 import classes from './Layout.module.scss';
 
@@ -17,7 +18,10 @@ const Layout: FC<LayoutProps> = ({ admin, children }) => {
   ) : (
     <div className={className}>
       <Header />
-      <main>{children}</main>
+      <main>
+        {children}
+        <TopArrow />
+      </main>
       <Footer />
     </div>
   );

@@ -1,0 +1,9 @@
+@import '../../assets/scss/variables';
+
+.Container {
+  padding: 0.25rem 1rem;
+  background-color: $light-color;
+  color: black;
+  border-radius: 4px;
+  width: fit-content;
+}

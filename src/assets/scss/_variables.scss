@@ -1,14 +1,27 @@
 $main-color: #a3610a;
+$secondary-color: #dd9933;
 $light-color: #fff;
 $dark-color: #282828;
+$grey-color: #555;
+$red: rgb(179, 26, 26);
+$green: rgb(19, 165, 19);
+$light-green: lighten($green, 25%);
 
 $bsb-font-family: 'brownskin-beauty';
 
 $campaign-bar-height: 3rem;
 $max-container-width: 1420px;
 
+$small-radius: 3px;
+$medium-radius: $small-radius * 2;
+$large-radius: $medium-radius * 2;
+$xlarge-radius: $large-radius * 2;
+
 $facebook: '\e100';
 $instagram: '\e101';
+$left: '\e102';
+$right: '\e103';
+$arrow-up: '\e104';
 
 // Small tablets and large smartphones (landscape view)
 $screen-sm-min: 576px;

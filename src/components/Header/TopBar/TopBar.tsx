@@ -6,7 +6,7 @@ export interface TopBarProps {}
 
 const TopBar: FC<TopBarProps> = () => {
   return (
-    <div className={classes.Container}>
+    <div id="top-bar" className={classes.Container}>
       <ul>
         <li role="img">
           <a

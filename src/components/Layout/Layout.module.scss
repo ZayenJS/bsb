@@ -3,4 +3,5 @@
 .Container_Public {
   display: grid;
   grid-template-rows: 12.5rem auto 25rem;
+  min-height: 100vh;
 }

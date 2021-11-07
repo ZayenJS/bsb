@@ -1,0 +1,18 @@
+@import '../../../../assets/scss/variables';
+
+.Container {
+  p {
+    text-align: center;
+    font-size: 1rem;
+    padding: 1.5rem 0;
+    line-height: 1.75;
+    color: $grey-color;
+  }
+
+  cite {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    color: $grey-color;
+  }
+}

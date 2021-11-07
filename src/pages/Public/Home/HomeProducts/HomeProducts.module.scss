@@ -1,0 +1,34 @@
+@import '../../../../assets/scss/variables';
+
+.Container {
+  h2 {
+    font-weight: bolder;
+    margin-bottom: 0;
+  }
+
+  strong,
+  em {
+    display: block;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  strong {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+  }
+
+  em {
+    text-transform: uppercase;
+    color: $grey-color;
+  }
+
+  div {
+    text-align: center;
+    margin: 2rem 0;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}

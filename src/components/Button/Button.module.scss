@@ -1,0 +1,16 @@
+@import '../../assets/scss/variables';
+
+.Container {
+  border: none;
+  padding: 0.5rem 3rem;
+  background-color: $main-color;
+  font: inherit;
+  color: $light-color;
+  border-radius: $small-radius;
+  transition: background-color 200ms ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: lighten($main-color, 5%);
+  }
+}

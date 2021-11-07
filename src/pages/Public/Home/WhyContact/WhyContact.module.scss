@@ -1,0 +1,51 @@
+@import '../../../../assets/scss/variables';
+
+.Container {
+  p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: $grey-color;
+
+    &:not(:first-child) {
+      text-align: center;
+      margin: 2rem 0;
+    }
+  }
+
+  cite {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    color: $grey-color;
+  }
+
+  li {
+    line-height: 1.75;
+    color: $grey-color;
+  }
+}
+
+.Content {
+  @include flex(stretch, flex-start);
+  gap: 4rem;
+  margin-bottom: 4rem;
+
+  p {
+    padding-bottom: 1.5rem;
+  }
+}
+
+.Image_Container {
+  min-width: 28rem;
+  aspect-ratio: 16/9;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.Text {
+  @include flex(flex-start, flex-start, column nowrap);
+  list-style: initial;
+  gap: 1rem;
+}

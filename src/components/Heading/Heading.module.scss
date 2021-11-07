@@ -1,0 +1,21 @@
+@import '../../assets/scss/variables';
+
+h1.Container {
+  font-size: 3rem;
+  color: $main-color;
+  font-weight: 600;
+  text-align: center;
+  max-width: $max-container-width;
+  margin: auto;
+  line-height: 1.25;
+}
+
+h2.Container,
+h3.Container {
+  font-size: 2rem;
+  color: $main-color;
+  font-weight: normal;
+  text-align: center;
+  max-width: $max-container-width;
+  margin: 4rem auto 2rem;
+}

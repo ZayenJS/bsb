@@ -1,0 +1,92 @@
+@import '../../assets/scss/variables';
+
+section.Container {
+  max-width: unset !important;
+  color: $light-color;
+
+  h3 {
+    font-weight: bolder;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1rem;
+    padding: 1rem 0;
+    line-height: 1.75;
+    color: $grey-color;
+  }
+
+  address {
+    @include flex(center, center, column nowrap);
+    gap: 2rem;
+    font-weight: bold;
+
+    text-align: center;
+
+    span {
+      display: block;
+    }
+
+    p {
+      color: $light-color;
+      font-weight: bold;
+      padding: 0;
+    }
+  }
+}
+
+.Required {
+  color: $red;
+  font-size: 1.25rem;
+}
+
+.Footer_Container {
+  width: 100%;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  background-color: $dark-color;
+
+  input,
+  textarea {
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 15rem;
+  }
+
+  form {
+    label {
+      color: darken($main-color, 10%);
+      font-weight: 600;
+    }
+
+    p {
+      padding: 1rem 0;
+    }
+  }
+}
+
+footer.Footer {
+  @include flex($justify: center);
+  max-width: $max-container-width;
+  margin: auto;
+
+  > * {
+    width: 100%;
+  }
+}
+
+.Input_Group {
+  @include flex(center, center);
+  gap: 2rem;
+  margin: 3rem 0;
+
+  & > div {
+    margin: 0;
+  }
+
+  & > * {
+    width: 100%;
+  }
+}

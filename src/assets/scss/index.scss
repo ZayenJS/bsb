@@ -6,9 +6,13 @@
 body,
 #root {
   min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+* {
+  line-height: 1.5;
 }
 
 html {
   font-family: 'Libre Baskerville', Arial, Helvetica, sans-serif;
-  line-height: 1.5;
 }

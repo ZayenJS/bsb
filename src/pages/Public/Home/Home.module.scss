@@ -1,5 +1,90 @@
-// @import "path_to_file";
+@import '../../../assets/scss/variables';
+
+@keyframes slide-bottom-to-top {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-right-to-left {
+  from {
+    opacity: 0;
+    transform: translateX(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 .Container {
-	/* your styles here... */
+  section {
+    max-width: $max-container-width;
+    margin: auto;
+  }
+}
+
+.FirstSection {
+  padding-top: 4rem;
+}
+
+.Carousel {
+  @for $i from 1 to 4 {
+    div:nth-child(#{$i}) {
+      .Carousel_Image {
+        background-image: url('../../../assets/images/home/carousel-image-#{$i}.jpeg');
+      }
+    }
+  }
+}
+
+.Carousel_Image {
+  @include flex(center, center, column nowrap);
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  strong {
+    font-size: 3.25rem;
+    max-width: 33rem;
+  }
+
+  a {
+    padding: 1rem;
+    background-color: $main-color;
+    color: $light-color;
+    border-radius: 3px;
+  }
+}
+
+.Text_Light {
+  transform: translateY(3rem);
+  opacity: 0;
+
+  &.Active {
+    animation: slide-bottom-to-top 1 1250ms 250ms forwards ease;
+  }
+
+  strong {
+    color: $light-color;
+  }
+}
+
+.Text_Brown {
+  transform: translateX(3rem);
+  opacity: 0;
+
+  &.Active {
+    animation: slide-right-to-left 1 1250ms 250ms forwards ease;
+  }
+
+  strong {
+    color: $main-color;
+  }
 }

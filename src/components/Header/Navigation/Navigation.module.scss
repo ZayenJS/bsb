@@ -1,6 +1,10 @@
 @import '../../../assets/scss/variables';
 
 .Container {
+  display: none;
+  @include lg {
+    display: block;
+  }
 }
 
 .List {
