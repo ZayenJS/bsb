@@ -5,3 +5,7 @@ export interface ChangeValuePayload {
   reducerName: keyof State;
   value: string;
 }
+
+export interface ChangeTopBarVisibilityPayload {
+  visible: boolean;
+}

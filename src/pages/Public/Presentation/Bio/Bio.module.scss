@@ -11,12 +11,25 @@
 }
 
 .Image_Container {
+  min-height: 22rem;
   overflow: hidden;
+  margin: 2rem auto;
   text-align: center;
-  margin: 2rem 0;
+  position: relative;
 
   img {
     border-radius: 50%;
     max-width: 100%;
   }
+}
+
+.Placeholder {
+  background: $light-color;
+  width: 344px;
+  height: 344px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }

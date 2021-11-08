@@ -78,7 +78,7 @@ footer.Footer {
 }
 
 .Input_Group {
-  @include flex(center, center);
+  @include flex(stretch, center);
   gap: 2rem;
   margin: 3rem 0;
 
@@ -89,4 +89,15 @@ footer.Footer {
   & > * {
     width: 100%;
   }
+}
+
+.Button {
+  height: 2.5rem;
+  width: 10.5rem;
+  padding: 0;
+}
+
+.Loader {
+  @include flex(center, center);
+  gap: 1rem;
 }

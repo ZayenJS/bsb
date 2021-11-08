@@ -2,9 +2,10 @@
 @import '../../../assets/scss/placeholders';
 
 .Container {
+  @include flex(center);
   background-color: $dark-color;
   color: $light-color;
-  padding: 1rem 0;
+  height: $top-bar-height;
 
   ul {
     @include flex(center);

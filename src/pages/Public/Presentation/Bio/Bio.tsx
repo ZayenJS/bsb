@@ -1,19 +1,38 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Heading from '../../../../components/Heading/Heading';
 
 import owner from '../../../../assets/images/presentation/FONDER-344x344.jpg';
 
 import classes from './Bio.module.scss';
+import Loader from '../../../../components/Loader/Loader';
 
 export interface BioProps {}
 
 const Bio: FC<BioProps> = () => {
+  const [state, setState] = useState({ placeholderVisible: true });
+
+  useEffect(() => {
+    const timeout = setTimeout(
+      () => setState((prevState) => ({ ...prevState, placeholderVisible: false })),
+      750,
+    );
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
+
   return (
     <section className={classes.Container}>
       <Heading tag="h1" uppercased>
         Qui suis je?
       </Heading>
       <div className={classes.Image_Container}>
+        {state.placeholderVisible && (
+          <div className={classes.Placeholder}>
+            <Loader />
+          </div>
+        )}
         <img src={owner} alt="Olivia Paul - fondatrice de Brownskin Beauty" />
       </div>
       <p>

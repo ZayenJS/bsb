@@ -1,14 +1,22 @@
 import { FC } from 'react';
+import { Helmet } from 'react-helmet';
 import Heading from '../../../components/Heading/Heading';
 import LetsMeet from '../../../components/LetsMeet/LetsMeet';
+import { WEBSITE_NAME } from '../../../constants';
+import { useScrollToTop } from '../../../hooks/useScrollToTop';
 
 import classes from './Contact.module.scss';
 
 export interface ContactProps {}
 
 const Contact: FC<ContactProps> = () => {
+  useScrollToTop();
+
   return (
     <div className={classes.Container}>
+      <Helmet>
+        <title>Contact | {WEBSITE_NAME} </title>
+      </Helmet>
       <div className={classes.Image}>
         <div>
           <Heading tag="h1" uppercased>

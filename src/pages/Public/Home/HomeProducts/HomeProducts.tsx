@@ -17,10 +17,14 @@ const HomeProducts: FC<HomeProductsProps> = () => {
       <strong>soin, capillaire, maquillage, hygiène, solaire</strong>
       <em>Conventionnel ou naturel</em>
       <div>
-        <img src={product} alt="illustration mettant en scène des produits cosmétiques" />
+        <img
+          loading="lazy"
+          src={product}
+          alt="illustration mettant en scène des produits cosmétiques"
+        />
       </div>
       <div>
-        <img src={madeInFrance} alt="logo made in france" />
+        <img loading="lazy" src={madeInFrance} alt="logo made in france" />
       </div>
     </section>
   );

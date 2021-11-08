@@ -15,4 +15,72 @@ body,
 
 html {
   font-family: 'Libre Baskerville', Arial, Helvetica, sans-serif;
+  scrollbar-color: $main-color lighten($main-color, 20%);
+}
+
+$scrollbar-width: 1.5rem;
+
+::-webkit-scrollbar-button:single-button {
+  background: darken($main-color, 20%);
+
+  &:hover {
+    background: darken($main-color, 22.5%);
+  }
+
+  &:active {
+    background: darken($main-color, 25%);
+  }
+
+  &:window-inactive {
+    background: darken($main-color, 25%);
+  }
+}
+
+@mixin arrow($direction) {
+  height: $scrollbar-width;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../images/arrow-#{$direction}-nav.webp');
+
+  &:hover {
+    background-image: url('../images/arrow-#{$direction}-nav-hover.webp');
+  }
+
+  &:active {
+    background-image: url('../images/arrow-#{$direction}-nav-active.webp');
+  }
+}
+
+/* Up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  @include arrow('up');
+}
+/* Down */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  @include arrow('down');
+}
+
+::-webkit-scrollbar {
+  width: $scrollbar-width;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, darken($main-color, 20%), $secondary-color);
+  border-radius: $medium-radius;
+  transition: all 500ms ease;
+
+  &:hover,
+  &:active {
+    background: linear-gradient(to bottom, darken($main-color, 15%), lighten($secondary-color, 5%));
+  }
+
+  &:window-inactive {
+    background: linear-gradient(to bottom, darken($main-color, 25%), darken($secondary-color, 10%));
+  }
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: transparentize(lighten($main-color, 35%), 0.5);
 }

@@ -138,10 +138,20 @@
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   border: 1px solid transparent;
+  transition: all 250ms ease;
+
+  &:hover {
+    background-color: $secondary-color;
+    border-color: darken($main-color, 15%);
+  }
 
   &.Active {
     background-color: $main-color;
     border-color: darken($main-color, 15%);
+
+    &:hover {
+      background-color: $secondary-color;
+    }
   }
 }
 

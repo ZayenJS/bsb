@@ -112,7 +112,7 @@ const Field: FC<FieldProps> = ({
 
   return (
     <div className={`${classes.Container} ${className ?? ''}`}>
-      {input}
+      <div>{input}</div>
       {errorMessage && <span className={classes.Error}>{errorMessage}</span>}
     </div>
   );

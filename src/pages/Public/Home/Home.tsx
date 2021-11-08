@@ -1,4 +1,5 @@
 import { FC, Key, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 import Carousel from '../../../components/Carousel/Carousel';
 import FirstLab from './FirstLab/FirstLab';
@@ -14,6 +15,8 @@ import FormulateDesires from '../../../components/FormulateDesires/FormulateDesi
 import { Link } from 'react-router-dom';
 import HomeProducts from './HomeProducts/HomeProducts';
 import LetsMeet from '../../../components/LetsMeet/LetsMeet';
+import { useScrollToTop } from '../../../hooks/useScrollToTop';
+import { WEBSITE_NAME } from '../../../constants';
 
 export interface HomeProps {}
 
@@ -23,12 +26,17 @@ const Home: FC<HomeProps> = () => {
     carouselImages,
   });
 
+  useScrollToTop();
+
   const carouselElementChangeHandler = (id: Key) => {
     setState((prevState) => ({ ...prevState, activeElement: id as string }));
   };
 
   return (
     <div className={classes.Container}>
+      <Helmet>
+        <title>Accueil | {WEBSITE_NAME} </title>
+      </Helmet>
       <Carousel
         showArrowsOnHover
         showDotsOnHover

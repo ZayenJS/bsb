@@ -21,19 +21,8 @@ const CarouselImage: FC<CarouselImageProps> = ({
   tag = 'figure',
   href,
 }) => {
-  let Tag = tag;
-
-  let carouselImage = (
-    <Tag key={id} className={className ?? ''}>
-      <div
-        className={`${classes.Text_Container} ${activeClass ?? ''} ${textContainerClass ?? ''} `}>
-        {children}
-      </div>
-    </Tag>
-  );
-
   if (href && tag === 'a') {
-    carouselImage = (
+    return (
       <Link to={href} className={className ?? ''}>
         <div
           className={`${classes.Text_Container} ${activeClass ?? ''} ${textContainerClass ?? ''} `}>
@@ -43,7 +32,16 @@ const CarouselImage: FC<CarouselImageProps> = ({
     );
   }
 
-  return carouselImage;
+  const Tag = tag;
+
+  return (
+    <Tag key={id} className={className ?? ''}>
+      <div
+        className={`${classes.Text_Container} ${activeClass ?? ''} ${textContainerClass ?? ''} `}>
+        {children}
+      </div>
+    </Tag>
+  );
 };
 
 export default CarouselImage;

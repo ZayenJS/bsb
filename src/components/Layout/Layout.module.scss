@@ -1,7 +1,30 @@
-// @import "path_to_file";
+@import '../../assets/scss/variables';
 
 .Container_Public {
-  display: grid;
-  grid-template-rows: 12.5rem auto 25rem;
   min-height: 100vh;
+  transition: all 500ms ease;
+
+  &.CampaignBar_Hidden {
+    grid-template-rows: ($header-height - $campaign-bar-height) auto 25rem;
+  }
+
+  & > header {
+    transition: all 250ms ease;
+
+    &.CampaignBar_Visible {
+      height: $header-height;
+    }
+
+    &.CampaignBar_Hidden {
+      height: $header-height - $campaign-bar-height;
+    }
+  }
+
+  & > main {
+    &.TopBar_Hidden,
+    &.CampaignBar_Hidden,
+    &.TopBar_Hidden.CampaignBar_Hidden {
+      margin-top: $header-height - $top-bar-height - $campaign-bar-height;
+    }
+  }
 }

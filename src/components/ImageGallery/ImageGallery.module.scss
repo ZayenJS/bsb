@@ -1,0 +1,13 @@
+@import '../../assets/scss/variables';
+
+.Container {
+  display: grid;
+  margin: 4rem 0;
+
+  > * {
+    width: 100%;
+    aspect-ratio: 1;
+    background-position: center;
+    background-size: cover;
+  }
+}

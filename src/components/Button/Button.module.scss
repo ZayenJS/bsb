@@ -8,6 +8,7 @@
   color: $light-color;
   border-radius: $small-radius;
   transition: background-color 200ms ease;
+  overflow: hidden;
 
   &:hover,
   &:focus-visible {

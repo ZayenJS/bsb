@@ -5,25 +5,40 @@ import Navigation from './Navigation/Navigation';
 import TopBar from './TopBar/TopBar';
 
 import classes from './Header.module.scss';
+import { useHideCampaignBar } from '../../hooks/useHideCampaignBar';
+import { useTopBar } from '../../hooks/useTopBar';
 
 export interface HeaderProps {}
 
 const Header: FC<HeaderProps> = () => {
-  const [state, setState] = useState({ isCampaignBarVisible: true });
+  const [state, setState] = useState({ isMountedTopBarMounted: true });
+  const { hideCampaignBar, isCampaignBarVisible } = useHideCampaignBar();
 
-  const hideCampaignBar = () =>
-    setState((prevState) => ({ ...prevState, isCampaignBarVisible: false }));
+  const headerContentFixed = useTopBar();
+
+  const clickHandler = () => {
+    hideCampaignBar();
+    setTimeout(
+      () => setState((prevState) => ({ ...prevState, isMountedTopBarMounted: false })),
+      500,
+    );
+  };
 
   return (
     <header className={classes.Container}>
-      <CampaignBar
-        onClick={hideCampaignBar}
-        className={`${classes.CampaignBar} ${
-          state.isCampaignBarVisible ? '' : classes.CampaignBar_Hidden
-        }`}
-      />
+      {state.isMountedTopBarMounted && (
+        <CampaignBar
+          onClick={clickHandler}
+          className={`${classes.CampaignBar} ${
+            isCampaignBarVisible ? '' : classes.CampaignBar_Hidden
+          }`}
+        />
+      )}
       <TopBar />
-      <div className={classes.Content_Container}>
+      <div
+        className={`${classes.Content_Container} ${
+          isCampaignBarVisible ? '' : classes.CampaignBar_Hidden
+        }  ${headerContentFixed ? classes.Fixed : ''}`}>
         <div className={classes.Content}>
           <Logo href="/" size="medium" />
           <Navigation />

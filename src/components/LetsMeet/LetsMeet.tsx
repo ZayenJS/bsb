@@ -1,15 +1,32 @@
-import { FC, FormEvent } from 'react';
+import { FC, FormEvent, useState } from 'react';
+import { useContactInfo } from '../../hooks/useContactInfo';
 import Button from '../Button/Button';
 import Field from '../Field/Field';
 import Heading from '../Heading/Heading';
+import Loader from '../Loader/Loader';
 
 import classes from './LetsMeet.module.scss';
 
 export interface LetsMeetProps {}
 
 const LetsMeet: FC<LetsMeetProps> = ({ children }) => {
+  const [state, setState] = useState({ loading: false });
+  const { errors } = useContactInfo();
+
   const formSubmitHandler = (event: FormEvent) => {
     event.preventDefault();
+    const hasError = !!Object.values(errors).filter((el) => el !== '').length;
+
+    if (hasError) {
+      return;
+    }
+
+    setState((prevState) => ({ ...prevState, loading: true }));
+
+    // TODO: replace with real api response
+    setTimeout(() => {
+      setState((prevState) => ({ ...prevState, loading: false }));
+    }, 1500);
   };
 
   return (
@@ -35,6 +52,7 @@ const LetsMeet: FC<LetsMeetProps> = ({ children }) => {
                 className={classes.Field}
                 label="Prénom *"
                 placeholder=" "
+                errorMessage={errors.firstName}
                 autofocus
               />
               <Field
@@ -45,6 +63,7 @@ const LetsMeet: FC<LetsMeetProps> = ({ children }) => {
                 className={classes.Field}
                 label="Nom *"
                 placeholder=" "
+                errorMessage={errors.lastName}
               />
             </div>
             <div className={classes.Input_Group}>
@@ -56,6 +75,7 @@ const LetsMeet: FC<LetsMeetProps> = ({ children }) => {
                 className={classes.Field}
                 label="Email *"
                 placeholder=" "
+                errorMessage={errors.email}
               />
             </div>
             <div className={classes.Input_Group}>
@@ -67,9 +87,19 @@ const LetsMeet: FC<LetsMeetProps> = ({ children }) => {
                 className={classes.Field}
                 label="Message *"
                 placeholder=" "
+                errorMessage={errors.message}
               />
             </div>
-            <Button>Envoyer</Button>
+            <Button className={classes.Button}>
+              {state.loading ? (
+                <div className={classes.Loader}>
+                  Envoi
+                  <Loader type="dots" />
+                </div>
+              ) : (
+                <span>Envoyer</span>
+              )}
+            </Button>
           </form>
           <div>
             <address>
