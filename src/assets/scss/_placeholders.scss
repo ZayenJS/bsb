@@ -6,3 +6,11 @@
     transition: all 250ms ease;
   }
 }
+
+%paragraph {
+  text-align: center;
+  font-size: 1rem;
+  padding: 1.5rem 0;
+  line-height: 1.75;
+  color: $grey-color;
+}

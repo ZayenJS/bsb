@@ -1,0 +1,7 @@
+@import '../../../../assets/scss/variables';
+
+.Container {
+  @include flex(stretch, flex-start, row wrap);
+  column-gap: 4rem;
+  padding-bottom: 10rem;
+}

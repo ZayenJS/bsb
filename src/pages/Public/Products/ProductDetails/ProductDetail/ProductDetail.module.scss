@@ -1,0 +1,27 @@
+@import '../../../../../assets/scss/variables';
+@import '../../../../../assets/scss/placeholders';
+
+.Container {
+  @include flex(stretch, flex-start, column nowrap);
+  width: calc($max-container-width / 3 - 4rem);
+
+  h2 {
+    text-align: left;
+    color: $dark-color;
+  }
+
+  p,
+  li {
+    @extend %paragraph;
+    text-align: left;
+    max-width: 18rem;
+  }
+
+  li {
+    padding-bottom: 0;
+  }
+
+  em {
+    font-weight: bold;
+  }
+}
