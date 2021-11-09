@@ -1,0 +1,93 @@
+@import '../../assets/scss/variables';
+
+.Container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 20vw;
+  background-color: $light-color;
+  z-index: 100000;
+  transform: translateX(-100%);
+  transition: all 300ms ease;
+
+  &.Visible {
+    transform: translateX(0);
+  }
+
+  @include lg {
+    transform: translateX(-100%) !important;
+  }
+}
+
+.Navigation {
+  @include lg {
+    display: none;
+  }
+
+  ul {
+    @include flex(stretch, center, column nowrap);
+    gap: 2rem;
+    padding: 4rem;
+  }
+}
+
+.Image_Container {
+  position: relative;
+  background-image: url('../../assets/images/drawer-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  aspect-ratio: 16/9;
+
+  strong {
+    @include flex(center, center);
+    position: absolute;
+    inset: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    color: rgb(231, 203, 47);
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: default;
+
+    @include sm {
+      font-size: 2.25rem;
+    }
+
+    @include md {
+      font-size: 3rem;
+    }
+
+    &::selection {
+      background-color: transparent;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.Cross {
+  top: 1rem;
+  right: 1rem;
+  transition: all 250ms ease;
+  transform: rotate(45deg) scale(1.5);
+  z-index: 10;
+
+  &:hover {
+    transform: rotate(225deg) scale(1.5);
+
+    &:before,
+    &:after {
+      background-color: lighten($main-color, 45%);
+    }
+  }
+
+  &:before,
+  &:after {
+    background-color: lighten($main-color, 35%);
+    transition: all 250ms ease;
+  }
+}

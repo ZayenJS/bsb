@@ -1,0 +1,56 @@
+@import '../../assets/scss/variables';
+
+.Container {
+  position: relative;
+}
+
+.Content_Container {
+  background-color: $light-color;
+  height: calc($header-height - ($top-bar-height + $campaign-bar-height));
+  transition: all 500ms ease;
+  box-shadow: 1px 2px 2px transparentize($dark-color, 0.9);
+
+  &.Fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50000;
+  }
+
+  &.CampaignBar_Hidden {
+    height: calc($header-height - $campaign-bar-height - $top-bar-height);
+  }
+}
+
+.Content {
+  @include flex(center, space-between);
+  height: 100%;
+  width: 50%;
+  padding-left: 2rem;
+
+  @include lg {
+    @include flex(center, space-between);
+    margin: auto;
+    width: auto;
+    padding-left: revert;
+    max-width: $max-container-width;
+  }
+}
+
+.CampaignBar {
+  margin-top: 0;
+  transition: all 500ms ease;
+
+  &.CampaignBar_Hidden {
+    margin-top: -$campaign-bar-height;
+  }
+}
+
+.Navigation {
+  display: none;
+
+  @include lg {
+    display: block;
+  }
+}
