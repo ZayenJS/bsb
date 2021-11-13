@@ -12,7 +12,11 @@
   background-position: center;
   background-size: cover;
   background-image: url('../../../assets/images/products/products.webp');
-  height: 90vh;
+  height: 50vh;
+
+  @include lg {
+    height: 90vh;
+  }
 
   em {
     margin-bottom: 1rem;
@@ -24,5 +28,10 @@
     text-align: center;
     padding: 0.25rem 0.5rem;
     border-radius: $small-radius;
+    font-size: 0.8rem;
+
+    @include lg {
+      font-size: 1rem;
+    }
   }
 }

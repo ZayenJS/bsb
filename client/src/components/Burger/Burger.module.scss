@@ -2,6 +2,8 @@
 
 .Container {
   @include flex(center, space-between, column nowrap);
+  position: absolute;
+  left: 2rem;
   width: 2rem;
   aspect-ratio: 6/4;
   cursor: pointer;

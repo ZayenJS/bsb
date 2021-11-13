@@ -8,31 +8,34 @@ import classes from './Logo.module.scss';
 export interface LogoProps {
   size?: 'small' | 'medium' | 'big';
   href?: string;
+  className?: string;
 }
 
-const Logo: FC<LogoProps> = ({ size, href }) => {
-  let className = classes.Container;
+const Logo: FC<LogoProps> = ({ size, href, className }) => {
+  let elementClassName = classes.Container;
 
   switch (size) {
     case 'small':
-      className += ` ${classes.Small}`;
+      elementClassName += ` ${classes.Small}`;
       break;
     case 'medium':
-      className += ` ${classes.Medium}`;
+      elementClassName += ` ${classes.Medium}`;
       break;
     case 'big':
-      className += ` ${classes.Big}`;
+      elementClassName += ` ${classes.Big}`;
       break;
     default:
       break;
   }
 
+  if (className) elementClassName += ` ${className}`;
+
   return href ? (
-    <NavLink className={() => className} to={href}>
+    <NavLink className={() => elementClassName} to={href}>
       <img src={logo} alt="" />
     </NavLink>
   ) : (
-    <div className={className}>
+    <div className={elementClassName}>
       <img src={logo} alt="" />
     </div>
   );

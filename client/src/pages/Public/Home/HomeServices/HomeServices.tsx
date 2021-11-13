@@ -27,7 +27,8 @@ const HomeServices: FC<HomeServicesProps> = () => {
         showDots
         pauseOnHover
         className={classes.Carousel}
-        duration={2500}>
+        duration={2500}
+        swipeable>
         <CarouselImage
           tag="a"
           href="/services"

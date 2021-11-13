@@ -77,7 +77,7 @@ const CampaignBar: FC<CampaignBarProps> = ({ className, onClick }) => {
   }, [state.activeElId, state.campaignBarTexts]);
 
   return (
-    <div className={`${classes.Container} ${className ?? ''}`}>
+    <div id="campaign-bar" className={`${classes.Container} ${className ?? ''}`}>
       {state.campaignBarTexts.map((el) => (
         <strong className={el.className} key={uuidv4()}>
           {el.text}

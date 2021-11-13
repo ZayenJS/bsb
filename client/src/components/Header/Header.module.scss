@@ -2,35 +2,69 @@
 
 .Container {
   position: relative;
+  background-color: $light-color;
+  height: $header-height - $top-bar-height;
+
+  &.CampaignBar_Hidden {
+    height: $header-height - $top-bar-height - $campaign-bar-height;
+
+    @include lg {
+      height: $header-height - $campaign-bar-height;
+    }
+  }
+
+  @include lg {
+    height: $header-height;
+  }
 }
 
 .Content_Container {
   background-color: $light-color;
-  height: calc($header-height - ($top-bar-height + $campaign-bar-height));
   transition: all 500ms ease;
   box-shadow: 1px 2px 2px transparentize($dark-color, 0.9);
+  height: calc($header-height - ($top-bar-height + $campaign-bar-height));
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 50000;
+  margin-top: $campaign-bar-height;
+
+  @include lg {
+    margin-top: 0;
+    margin-top: $campaign-bar-height + $top-bar-height;
+  }
 
   &.Fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50000;
+    margin-top: 0;
+
+    @include lg {
+      margin-top: 0;
+    }
+  }
+
+  &.Fixed.CampaignBar_Hidden {
+    margin-top: 0;
   }
 
   &.CampaignBar_Hidden {
+    margin-top: 0;
     height: calc($header-height - $campaign-bar-height - $top-bar-height);
+
+    @include lg {
+      margin-top: $top-bar-height;
+    }
   }
 }
 
 .Content {
-  @include flex(center, space-between);
+  @include flex(center, center);
   height: 100%;
-  width: 50%;
-  padding-left: 2rem;
+  width: 100%;
 
   @include lg {
     @include flex(center, space-between);
+    padding-left: 2rem;
     margin: auto;
     width: auto;
     padding-left: revert;
@@ -40,7 +74,7 @@
 
 .CampaignBar {
   margin-top: 0;
-  transition: all 500ms ease;
+  transition: all 250ms ease;
 
   &.CampaignBar_Hidden {
     margin-top: -$campaign-bar-height;

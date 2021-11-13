@@ -9,6 +9,7 @@
 .List {
   @include flex(center, center);
   gap: 1rem;
+  padding-right: 2rem;
 
   a {
     text-transform: uppercase;

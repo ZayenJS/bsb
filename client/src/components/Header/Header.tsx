@@ -27,7 +27,8 @@ const Header: FC<HeaderProps> = () => {
   };
 
   return (
-    <header className={classes.Container}>
+    <header
+      className={`${classes.Container} ${isCampaignBarVisible ? '' : classes.CampaignBar_Hidden}`}>
       {state.isMountedTopBarMounted && (
         <CampaignBar
           onClick={campaignBarClickHandler}

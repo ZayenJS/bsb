@@ -7,6 +7,7 @@ import Button from '../Button/Button';
 import Field from '../Field/Field';
 import Heading from '../Heading/Heading';
 import Loader from '../Loader/Loader';
+import OwnerInfos from '../OwnerInfos/OwnerInfos';
 
 import classes from './LetsMeet.module.scss';
 
@@ -46,7 +47,7 @@ const LetsMeet: FC<LetsMeetProps> = ({ children }) => {
           Rencontrons-nous !
         </Heading>
       </header>
-      <main>{children}</main>
+      <main className={classes.Main}>{children}</main>
       <div className={classes.Footer_Container}>
         <footer className={classes.Footer}>
           <form onSubmit={formSubmitHandler}>
@@ -116,14 +117,7 @@ const LetsMeet: FC<LetsMeetProps> = ({ children }) => {
             </Button>
           </form>
           <div>
-            <address>
-              <p>Mme Olivia PAUL</p>
-              <div>
-                <span>15 rue de la mare aux moines</span>
-                <span>91350 GRIGNY</span>
-              </div>
-              <span>+33(0)6 46 35 90 24</span>
-            </address>
+            <OwnerInfos displayName />
           </div>
         </footer>
       </div>

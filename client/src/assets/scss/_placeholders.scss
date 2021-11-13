@@ -7,10 +7,23 @@
   }
 }
 
+%mobile-horizontal-padding {
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  @include xxl {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 %paragraph {
   text-align: center;
   font-size: 1rem;
-  padding: 1.5rem 0;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   line-height: 1.75;
   color: $grey-color;
+
+  @extend %mobile-horizontal-padding;
 }

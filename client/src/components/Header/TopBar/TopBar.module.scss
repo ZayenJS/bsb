@@ -5,37 +5,32 @@
   @include flex(center);
   background-color: $dark-color;
   color: $light-color;
-  height: $top-bar-height;
+  height: $top-bar-height * 2;
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  pointer-events: none;
+
+  @include lg {
+    height: $top-bar-height;
+    opacity: 1;
+    pointer-events: all;
+    position: static;
+  }
+
+  // ul {
+  //   @include flex(center);
+  //   gap: 2rem;
+  // }
+}
+
+.Social_Networks {
+  max-width: 1420px;
+  width: 100%;
+  margin: auto;
+  align-items: flex-start;
 
   ul {
-    @include flex(center);
-    max-width: 1420px;
-    width: 100%;
-    margin: auto;
-    gap: 2rem;
-  }
-}
-
-.Facebook {
-  @extend %Icon;
-  &:hover:before {
-    color: darken($light-color, 10%);
-  }
-
-  &:before {
-    content: $facebook;
-    color: $light-color;
-  }
-}
-
-.Instagram {
-  @extend %Icon;
-  &:hover:before {
-    color: darken($light-color, 10%);
-  }
-
-  &:before {
-    content: $instagram;
-    color: $light-color;
+    gap: 1rem;
   }
 }

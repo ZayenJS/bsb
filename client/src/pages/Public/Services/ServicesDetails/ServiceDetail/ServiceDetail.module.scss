@@ -5,6 +5,7 @@
   p,
   li {
     @extend %paragraph;
+    @extend %mobile-horizontal-padding;
   }
 
   p {
@@ -13,10 +14,11 @@
 
   ul {
     margin: 2rem 0;
+  }
 
-    li {
-      padding: 0;
-    }
+  li {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 

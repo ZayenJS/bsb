@@ -1,20 +1,25 @@
 @import '../../../../assets/scss/variables';
+@import '../../../../assets/scss/placeholders';
 
 .Container {
   h1 {
     margin-top: 2rem;
+    @extend %mobile-horizontal-padding;
   }
 
   h3 {
     margin: 2rem 0;
     color: $dark-color;
+    @extend %mobile-horizontal-padding;
   }
 
   p {
     text-align: center;
     font-size: 1rem;
-    padding: 1.5rem 0;
     line-height: 1.75;
     color: $grey-color;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    @extend %mobile-horizontal-padding;
   }
 }

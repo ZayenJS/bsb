@@ -8,19 +8,29 @@
   right: 20vw;
   background-color: $light-color;
   z-index: 100000;
-  transform: translateX(-100%);
+  transform: translateX(-125%);
   transition: all 300ms ease;
-
   &.Visible {
     transform: translateX(0);
   }
 
   @include lg {
-    transform: translateX(-100%) !important;
+    transform: translateX(-125%) !important;
   }
 }
 
 .Navigation {
+  overflow: auto;
+  height: calc(100vh - 11rem - 6rem);
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
   @include lg {
     display: none;
   }
@@ -28,7 +38,11 @@
   ul {
     @include flex(stretch, center, column nowrap);
     gap: 2rem;
-    padding: 4rem;
+    padding: 2rem;
+
+    @include sm {
+      padding: 4rem;
+    }
   }
 }
 
@@ -38,7 +52,7 @@
   background-position: center;
   background-size: cover;
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 11rem;
 
   strong {
     @include flex(center, center);
@@ -89,5 +103,20 @@
   &:after {
     background-color: lighten($main-color, 35%);
     transition: all 250ms ease;
+  }
+}
+
+.Social_Networks {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  gap: 1rem;
+  width: 100%;
+  height: 6rem;
+  background-color: $dark-color;
+  color: $secondary-color;
+
+  strong {
+    margin-bottom: 0;
   }
 }

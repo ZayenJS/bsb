@@ -5,6 +5,7 @@ import product from '../../../../assets/images/home/product-150x150.jpg';
 import madeInFrance from '../../../../assets/images/home/made-in-france-150x150.png';
 
 import classes from './HomeProducts.module.scss';
+import { Link } from 'react-router-dom';
 
 export interface HomeProductsProps {}
 
@@ -17,11 +18,13 @@ const HomeProducts: FC<HomeProductsProps> = () => {
       <strong>soin, capillaire, maquillage, hygiène, solaire</strong>
       <em>Conventionnel ou naturel</em>
       <div>
-        <img
-          loading="lazy"
-          src={product}
-          alt="illustration mettant en scène des produits cosmétiques"
-        />
+        <Link to="/produits">
+          <img
+            loading="lazy"
+            src={product}
+            alt="illustration mettant en scène des produits cosmétiques"
+          />
+        </Link>
       </div>
       <div>
         <img loading="lazy" src={madeInFrance} alt="logo made in france" />

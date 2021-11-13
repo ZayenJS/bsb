@@ -42,7 +42,8 @@ const Field: FC<FieldProps> = ({
   min,
   max,
 }) => {
-  const changeValue = useChangeValue(name);
+  const { changeValue, value: fieldValue } = useChangeValue(name, reducerName);
+  value = fieldValue ?? value;
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (onChange) return onChange(event);

@@ -13,12 +13,14 @@
 }
 
 .Carousel {
-  width: 30rem;
   height: auto;
   aspect-ratio: 16/9;
-  margin: auto;
-  margin-top: 1rem;
-  margin-bottom: 6rem;
+  margin: 1rem auto 6rem;
+  width: 90%;
+
+  @include lg {
+    width: 30rem;
+  }
 
   @for $i from 1 to 4 {
     div:nth-child(#{$i}) {

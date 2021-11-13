@@ -1,10 +1,13 @@
 @import '../../../../assets/scss/variables';
+@import '../../../../assets/scss/placeholders';
 
 .Container {
   p {
     font-size: 1rem;
     line-height: 1.75;
     color: $grey-color;
+    text-align: center;
+    @extend %mobile-horizontal-padding;
 
     &:not(:first-child) {
       text-align: center;
@@ -17,18 +20,28 @@
     text-align: center;
     font-weight: 600;
     color: $grey-color;
+    @extend %mobile-horizontal-padding;
+  }
+
+  ul {
+    list-style-type: disc;
   }
 
   li {
     line-height: 1.75;
     color: $grey-color;
+    @extend %mobile-horizontal-padding;
   }
 }
 
 .Content {
-  @include flex(stretch, flex-start);
+  @include flex(stretch, flex-start, column nowrap);
   gap: 4rem;
   margin-bottom: 4rem;
+
+  @include xl {
+    flex-direction: row;
+  }
 
   p {
     padding-bottom: 1.5rem;
@@ -36,8 +49,12 @@
 }
 
 .Image_Container {
-  min-width: 28rem;
   aspect-ratio: 16/9;
+  width: 100%;
+
+  @include lg {
+    min-width: 28rem;
+  }
 
   img {
     max-width: 100%;

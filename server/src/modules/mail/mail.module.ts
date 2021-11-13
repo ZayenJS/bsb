@@ -20,6 +20,7 @@ import { MailService } from './mail.service';
             pass: config.get('SMTP_PASS'),
           },
         },
+        preview: true,
         template: {
           dir: path.join(__dirname, 'templates'),
           adapter: new EjsAdapter(),

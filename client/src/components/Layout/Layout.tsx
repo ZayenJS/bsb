@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useHideCampaignBar } from '../../hooks/useHideCampaignBar';
 import { useTopBar } from '../../hooks/useTopBar';
 import Footer from '../Footer/Footer';
@@ -25,8 +25,9 @@ const Layout: FC<LayoutProps> = ({ admin, children }) => {
       className={`${className} ${
         isCampaignBarVisible ? classes.CampaignBar_Visible : classes.CampaignBar_Hidden
       }`}>
+      <div id="top"></div>
       <Header />
-      <main className={`${!isTopBarVisible ? '' : classes.TopBar_Hidden} `}>
+      <main className={`${!isTopBarVisible ? '' : classes.TopBar_Hidden}`}>
         {children}
         <TopArrow />
       </main>

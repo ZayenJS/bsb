@@ -1,4 +1,4 @@
-import { FC, Key, useCallback, useEffect, useState } from 'react';
+import { FC, Key, TouchEvent, useCallback, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import classes from './Carousel.module.scss';
@@ -14,6 +14,7 @@ export interface CarouselProps {
   showArrowsOnHover?: boolean;
   showDots?: boolean;
   showDotsOnHover?: boolean;
+  swipeable?: boolean;
 }
 
 interface CarouselElement {
@@ -26,6 +27,7 @@ interface CarouselState {
   elements: CarouselElement[];
   paused: boolean;
   direction: 'left' | 'right';
+  xDown: number | null;
 }
 
 const Carousel: FC<CarouselProps> = ({
@@ -40,6 +42,7 @@ const Carousel: FC<CarouselProps> = ({
   showArrowsOnHover = false,
   showDots = false,
   showDotsOnHover = false,
+  swipeable = false,
 }) => {
   const [state, setState] = useState<CarouselState>({
     direction: 'right',
@@ -49,6 +52,7 @@ const Carousel: FC<CarouselProps> = ({
       id: el.key!,
       className: i === 0 ? classes.Active : classes.Leave,
     })),
+    xDown: null,
   });
 
   const nextImage = useCallback(() => {
@@ -156,6 +160,33 @@ const Carousel: FC<CarouselProps> = ({
     }
   };
 
+  const touchStartHandler = (event: TouchEvent) => {
+    if (!swipeable) return;
+    const firstTouch = event.touches[0];
+    setState((prevState) => ({ ...prevState, xDown: firstTouch.clientX }));
+  };
+
+  const touchMoveHandler = (event: TouchEvent) => {
+    if (!state.xDown || !swipeable) {
+      return;
+    }
+
+    const xUp = event.touches[0].clientX;
+
+    const xDiff = state.xDown - xUp;
+
+    /* reset values */
+    setState((prevState) => ({ ...prevState, xDown: null, yDown: null }));
+
+    if (xDiff > 0) {
+      /* left swipe */
+      return nextImage();
+    }
+
+    /* right swipe */
+    return previousImage();
+  };
+
   const capitalizedDirection = state.direction[0].toUpperCase() + state.direction.slice(1);
 
   return (
@@ -169,7 +200,9 @@ const Carousel: FC<CarouselProps> = ({
             key={element.id}
             className={`${classes.Image} ${slide ? classes.Slide : ''} ${
               classes[capitalizedDirection]
-            } ${element.className}`}>
+            } ${element.className}`}
+            onTouchStart={touchStartHandler}
+            onTouchMove={touchMoveHandler}>
             {(children as JSX.Element[])[i]}
           </div>
         ))}

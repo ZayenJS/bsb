@@ -5,14 +5,12 @@ import { MailService } from './mail.service';
 export class MailController {
   constructor(private readonly mailService: MailService) {}
   @Post()
-  async mail(@Body() body) {
-    const response = await this.mailService.sendMail({
+  sendMail(@Body() body) {
+    return this.mailService.sendMail({
       email: body.email,
       firstName: body.firstName,
       lastName: body.lastName,
       message: body.message,
     });
-
-    return response;
   }
 }

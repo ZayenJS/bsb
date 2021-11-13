@@ -41,7 +41,6 @@ const News: FC<NewsProps> = () => {
         <Heading tag="h2" uppercased>
           Ils parlent de nous
         </Heading>
-
         <div className={classes.Articles}>
           <article>
             <Heading tag="h3">Actubeauty</Heading>

@@ -1,6 +1,61 @@
 @import '../../assets/scss/variables';
 
 .Container {
-  background-color: $secondary-color;
-  min-height: 15rem;
+  @include flex(center, center);
+  background-color: $dark-color;
+  color: $secondary-color;
+
+  address {
+    color: $secondary-color;
+    gap: 0.5rem;
+    height: 100%;
+
+    p {
+      color: $dark-color;
+      padding: 0;
+    }
+  }
+}
+
+.Content {
+  @include flex(stretch, center, column nowrap);
+  width: fit-content;
+  max-width: $max-container-width;
+  padding: 2rem 0;
+
+  @include lg {
+    padding: 4rem 0;
+  }
+}
+
+.Top {
+  @include flex(center, center, column nowrap);
+  font-size: 1.1rem;
+  width: 100%;
+  gap: 2rem;
+
+  @include lg {
+    @include flex(stretch, space-between);
+  }
+}
+
+.Logo {
+  background-color: #fff;
+  border-radius: $medium-radius;
+}
+
+.Links {
+  @include flex(center, center, row wrap);
+  width: 100%;
+  gap: 4rem;
+  margin-top: 4rem;
+  font-weight: bold;
+
+  a {
+    transition: all 250ms ease;
+
+    &:hover {
+      color: lighten($secondary-color, 15%);
+    }
+  }
 }

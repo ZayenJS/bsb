@@ -10,10 +10,10 @@ export const contact =
         try {
           const { email, firstName, lastName, message } = (store.getState() as State).contact;
           const { data } = await axios.post('/mail', {
-            email,
-            firstName,
-            lastName,
-            message,
+            email: email.value,
+            firstName: firstName.value,
+            lastName: lastName.value,
+            message: message.value,
           });
 
           action.payload.apiResponse = data;

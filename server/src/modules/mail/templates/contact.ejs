@@ -5,13 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact</title>
+    <style>
+      * {
+        line-height: 1.5;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+      }
+
+      strong {
+        color: #a3610a;
+      }
+    </style>
   </head>
   <body>
-    <strong>Prénom: <%= locals.firstName %></strong>
-    <strong>Nom: <%= locals.lastName %></strong>
-    <strong>Email: <%= locals.email %></strong>
-    <strong>Objet: <%= locals.object %></strong>
-    <strong>Message:</strong>
-    <p><%= locals.message %></p>
+    <main>
+      <div class="element">
+        <strong>Prénom:</strong>
+        <span><%= locals.firstName %></span>
+      </div>
+      <div class="element">
+        <strong>Nom:</strong>
+        <span><%= locals.lastName %></span>
+      </div>
+      <div class="element">
+        <strong>Email:</strong>
+        <span><%= locals.email %></span>
+      </div>
+      <div class="element">
+        <strong>Objet:</strong>
+        <span><%= locals.object %></span>
+      </div>
+      <div class="element">
+        <strong>Message:</strong>
+        <pre><%= locals.message %></pre>
+      </div>
+    </main>
   </body>
 </html>

@@ -15,13 +15,12 @@ export class MailService {
   async sendMail({ email, firstName, lastName, message }: MailData) {
     try {
       const object = 'Demande de contact';
-      console.log({ object });
 
       const response = await this.mailerService.sendMail({
         // TODO: change this for production
         // to: 'oliviapaul@brownskinbeauty.fr',
-        to: 'zayen01@gmail.com',
-        from: `${firstName} ${lastName}`,
+        to: 'noreply@brownskinbeauty.fr',
+        from: `${firstName} ${lastName} <noreply@brownskinbeauty.fr>`,
         subject: object,
         template: './contact',
         context: {

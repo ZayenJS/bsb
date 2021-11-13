@@ -1,0 +1,111 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/placeholders';
+
+.Container {
+  @include flex(center, center, column nowrap);
+
+  strong {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  ul {
+    @include flex(center, center);
+  }
+}
+
+.Facebook,
+.Instagram,
+.Linkedin {
+  @extend %Icon;
+  display: block;
+  padding: 0.5rem;
+  transition: all 50ms ease;
+  background-color: transparent;
+  border-radius: $medium-radius;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    color: $light-color;
+  }
+}
+
+.Facebook {
+  border-radius: 50%;
+
+  &:hover {
+    background-color: #0574e7;
+  }
+
+  &:before {
+    content: $facebook;
+  }
+}
+.Instagram {
+  &:hover {
+    background: #f09433;
+    background: -moz-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: -webkit-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+  }
+
+  &:before {
+    content: $instagram;
+  }
+}
+.Linkedin {
+  &:hover {
+    background-color: #0a66c2;
+  }
+
+  &:before {
+    content: $linkedin;
+  }
+}
+
+.Small {
+  padding: 0.25rem;
+
+  &:before {
+    font-size: 1rem;
+  }
+}
+
+.Medium {
+  padding: 0.5rem;
+
+  &:before {
+    font-size: 1.5rem;
+  }
+}
+
+.Big {
+  padding: 0.75rem;
+
+  &:before {
+    font-size: 1.75rem;
+  }
+}

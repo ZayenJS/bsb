@@ -2,11 +2,7 @@
 
 .Container_Public {
   min-height: 100vh;
-  transition: all 500ms ease;
-
-  &.CampaignBar_Hidden {
-    grid-template-rows: ($header-height - $campaign-bar-height) auto 25rem;
-  }
+  transition: all 250ms ease;
 
   & > header {
     transition: all 250ms ease;
@@ -21,10 +17,22 @@
   }
 
   & > main {
-    &.TopBar_Hidden,
-    &.CampaignBar_Hidden,
+    transition: all 250ms ease;
+
+    &.TopBar_Hidden {
+      @include lg {
+        margin-top: 0;
+      }
+    }
+
+    &.CampaignBar_Hidden {
+      @include lg {
+        margin-top: $campaign-bar-height;
+      }
+    }
+
     &.TopBar_Hidden.CampaignBar_Hidden {
-      margin-top: $header-height - $top-bar-height - $campaign-bar-height;
+      // margin-top: $header-height - $campaign-bar-height;
     }
   }
 }

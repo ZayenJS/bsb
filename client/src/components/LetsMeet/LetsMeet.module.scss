@@ -1,36 +1,27 @@
 @import '../../assets/scss/variables';
+@import '../../assets/scss/placeholders';
 
-section.Container {
+.Container {
   max-width: unset !important;
   color: $light-color;
 
   h3 {
     font-weight: bolder;
   }
+}
 
+.Main {
   p {
     text-align: center;
     font-size: 1rem;
-    padding: 1rem 0;
     line-height: 1.75;
     color: $grey-color;
-  }
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    @extend %mobile-horizontal-padding;
 
-  address {
-    @include flex(center, center, column nowrap);
-    gap: 2rem;
-    font-weight: bold;
-
-    text-align: center;
-
-    span {
-      display: block;
-    }
-
-    p {
-      color: $light-color;
-      font-weight: bold;
-      padding: 0;
+    @include lg {
+      padding: 1rem 0;
     }
   }
 }
@@ -68,19 +59,50 @@ section.Container {
 }
 
 footer.Footer {
-  @include flex($justify: center);
+  @include flex(center, center, column nowrap);
   max-width: $max-container-width;
   margin: auto;
+
+  @include lg {
+    align-items: stretch;
+    flex-direction: row;
+  }
+
+  form {
+    padding-bottom: 2rem;
+    border-bottom: 2px solid $main-color;
+
+    @include lg {
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0;
+    }
+  }
 
   > * {
     width: 100%;
   }
+
+  small {
+    @extend %mobile-horizontal-padding;
+    display: block;
+    text-align: center;
+    width: 100%;
+
+    @include lg {
+      display: revert;
+    }
+  }
 }
 
 .Input_Group {
-  @include flex(stretch, center);
-  gap: 2rem;
+  @include flex(stretch, center, column nowrap);
+  gap: 3rem;
   margin: 3rem 0;
+
+  @include lg {
+    @include flex(stretch, center);
+    gap: 2rem;
+  }
 
   & > div {
     margin: 0;
@@ -92,9 +114,19 @@ footer.Footer {
 }
 
 .Button {
-  height: 2.5rem;
-  width: 10.5rem;
-  padding: 0;
+  height: 3.5rem;
+  width: 100%;
+  max-width: 20rem;
+  font-weight: bold;
+  padding: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include lg {
+    margin: 0;
+    display: revert;
+  }
 }
 
 .Loader {

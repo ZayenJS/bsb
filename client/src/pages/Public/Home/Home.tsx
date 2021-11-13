@@ -44,7 +44,8 @@ const Home: FC<HomeProps> = () => {
         onElementChange={carouselElementChangeHandler}
         className={classes.Carousel}
         autoplay
-        pauseOnHover>
+        pauseOnHover
+        swipeable>
         {state.carouselImages.map((carouselImage) => (
           <CarouselImage
             className={classes.Carousel_Image}

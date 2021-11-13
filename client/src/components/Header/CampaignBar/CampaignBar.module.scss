@@ -5,15 +5,26 @@
   background-color: $main-color;
   height: $campaign-bar-height;
   color: $light-color;
-  font-size: 1.2rem;
   position: relative;
   overflow: hidden;
+
+  @include lg {
+    font-size: 1.2rem;
+  }
 
   strong {
     transform: translate(100%);
     opacity: 0;
     position: absolute;
     cursor: default;
+    text-align: center;
+    max-width: 80%;
+    line-height: 1.25;
+
+    @include lg {
+      max-width: none;
+    }
+
     &::selection {
       background-color: transparent;
     }
@@ -28,6 +39,7 @@
 
 .Active {
   animation: slide-from-right forwards 1 800ms 250ms ease-in-out;
+  text-align: center;
   position: static;
 }
 

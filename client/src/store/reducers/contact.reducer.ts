@@ -23,11 +23,13 @@ export interface ContactReducerState {
   notification: string;
 }
 
+const INITIAL_FIELD_VALUE = { value: '', touched: false };
+
 const INITIAL_STATE: ContactReducerState = {
-  firstName: { value: '', touched: false },
-  lastName: { value: '', touched: false },
-  email: { value: '', touched: false },
-  message: { value: '', touched: false },
+  firstName: INITIAL_FIELD_VALUE,
+  lastName: INITIAL_FIELD_VALUE,
+  email: INITIAL_FIELD_VALUE,
+  message: INITIAL_FIELD_VALUE,
   mailStatus: MailStatus.NOT_SENT,
   notification: '',
 };
@@ -81,10 +83,16 @@ const reducer = (
       return state;
     }
     case ContactActionsEnum.RESET_MAIL: {
+      const hasError = state.mailStatus === MailStatus.ERROR;
+
       return {
         ...state,
         mailStatus: MailStatus.NOT_SENT,
         notification: '',
+        firstName: hasError ? state.firstName : INITIAL_FIELD_VALUE,
+        lastName: hasError ? state.lastName : INITIAL_FIELD_VALUE,
+        email: hasError ? state.email : INITIAL_FIELD_VALUE,
+        message: hasError ? state.message : INITIAL_FIELD_VALUE,
       };
     }
     default:

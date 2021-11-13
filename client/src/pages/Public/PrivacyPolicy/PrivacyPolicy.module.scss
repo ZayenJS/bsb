@@ -1,0 +1,7 @@
+@import '../../../assets/scss/variables';
+
+.Container {
+  max-width: $max-container-width;
+  margin: auto;
+  min-height: calc(100vh - $header-height);
+}

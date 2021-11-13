@@ -1,4 +1,5 @@
 @import '../../../../assets/scss/variables';
+@import '../../../../assets/scss/placeholders';
 
 .Container {
   h2 {
@@ -16,11 +17,15 @@
   strong {
     font-size: 1.25rem;
     text-transform: uppercase;
+
+    @extend %mobile-horizontal-padding;
   }
 
   em {
     text-transform: uppercase;
     color: $grey-color;
+
+    @extend %mobile-horizontal-padding;
   }
 
   div {

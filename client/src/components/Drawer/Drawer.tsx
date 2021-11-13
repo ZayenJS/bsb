@@ -5,16 +5,19 @@ import Navigation from '../Header/Navigation/Navigation';
 
 import classes from './Drawer.module.scss';
 import Cross from '../Cross/Cross';
+import SocialNetworks from '../SocialNetworks/SocialNetworks';
+import { useBlockScroll } from '../../hooks/useBockScroll';
 
 export interface DrawerProps {}
 
 const Drawer: FC<DrawerProps> = () => {
   const { drawerVisible, changeDrawerStatus } = useDrawer();
+  const { unblockScroll } = useBlockScroll();
 
   const closeDrawer = () => {
     changeDrawerStatus(false);
+    unblockScroll();
   };
-
   return (
     <>
       <Backdrop visible={drawerVisible} onClick={closeDrawer} />
@@ -24,6 +27,7 @@ const Drawer: FC<DrawerProps> = () => {
           <strong>Brownskin Beauty</strong>
         </div>
         <Navigation onLinkClick={closeDrawer} className={classes.Navigation} />
+        <SocialNetworks displayHeading className={classes.Social_Networks} />
       </aside>
     </>
   );
