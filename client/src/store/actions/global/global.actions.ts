@@ -1,4 +1,10 @@
-import { ChangeDrawerStatusPayload, ChangeTopBarVisibilityPayload, FieldTouchedPayload } from '.';
+import {
+  ChangeDrawerStatusPayload,
+  ChangeTopBarVisibilityPayload,
+  FieldTouchedPayload,
+  ResetNotificationPayload,
+  SetFieldErrorPayload,
+} from '.';
 import { ChangeValuePayload } from './global.payloads';
 
 export enum GlobalActionsEnum {
@@ -7,6 +13,8 @@ export enum GlobalActionsEnum {
   CHANGE_TOP_BAR_VISIBILITY = 'CHANGE_TOP_BAR_VISIBILITY',
   CHANGE_DRAWER_STATUS = 'CHANGE_DRAWER_STATUS',
   FIELD_TOUCHED = 'FIELD_TOUCHED',
+  SET_FIELD_ERROR = 'SET_FIELD_ERROR',
+  RESET_NOTIFICATION = 'RESET_NOTIFICATION',
 }
 
 export interface ChangeValueAction {
@@ -33,9 +41,21 @@ export interface FieldTouchedAction {
   payload: FieldTouchedPayload;
 }
 
+export interface SetFieldErrorAction {
+  type: GlobalActionsEnum.SET_FIELD_ERROR;
+  payload: SetFieldErrorPayload;
+}
+
+export interface ResetNotificationAction {
+  type: GlobalActionsEnum.RESET_NOTIFICATION;
+  payload: ResetNotificationPayload;
+}
+
 export type GlobalActions =
   | ChangeValueAction
   | HideCampaignBarAction
   | ChangeTopBarVisibilityAction
   | ChangeDrawerStatusAction
-  | FieldTouchedAction;
+  | FieldTouchedAction
+  | ResetNotificationAction
+  | SetFieldErrorAction;

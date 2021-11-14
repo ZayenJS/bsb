@@ -1,0 +1,18 @@
+.field {
+  margin: 1rem 0;
+}
+.field em {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #a3610a;
+}
+.field span {
+  font-size: 1.1rem;
+}
+.field pre {
+  font-weight: normal;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/*# sourceMappingURL=emails.css.map */

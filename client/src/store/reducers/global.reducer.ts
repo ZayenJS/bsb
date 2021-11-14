@@ -4,12 +4,14 @@ export interface GlobalReducerState {
   isCampaignBarVisible: boolean;
   isTopBarVisible: boolean;
   drawerVisible: boolean;
+  notification: '';
 }
 
 const INITIAL_STATE: GlobalReducerState = {
   isCampaignBarVisible: true,
   isTopBarVisible: true,
   drawerVisible: false,
+  notification: '',
 };
 
 const reducer = (

@@ -37,7 +37,7 @@ const News: FC<NewsProps> = () => {
         <title>Actualités | {WEBSITE_NAME} </title>
       </Helmet>
       <Partners brands={partners} />
-      <section>
+      <section className={classes.About_Us}>
         <Heading tag="h2" uppercased>
           Ils parlent de nous
         </Heading>

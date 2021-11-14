@@ -1,7 +1,22 @@
 @import '../../../assets/scss/variables';
+@import '../../../assets/scss/placeholders';
 
 .Container {
-  max-width: $max-container-width;
+  max-width: $max-container-width / 2;
   margin: auto;
   min-height: calc(100vh - $header-height);
+  line-height: 1.75;
+  padding-bottom: 4rem;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  p,
+  address {
+    @extend %paragraph;
+    font-size: 1.1rem;
+    margin: auto;
+    @extend %mobile-horizontal-padding;
+  }
 }

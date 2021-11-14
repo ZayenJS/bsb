@@ -33,14 +33,22 @@ const PrivacyPolicy: FC<PrivacyPolicyProps> = () => {
         proposé par Google Inc. emploie, lorsque vous en avez donné l’accord, la technologie des
         cookies à des fins de mesure d’audience.
       </p>
-      <p>Vous pouvez consulter les conditions générales de Google Analytics.</p>
+      <p>
+        Vous pouvez consulter les conditions générales de{' '}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://marketingplatform.google.com/about/analytics/terms/fr/">
+          Google Analytics.
+        </a>
+      </p>
       <Heading tag="h2">
         Protection des biens et des personnes – gestion des données personnelles
       </Heading>
       <p>
         Les informations recueillies par le biais de nos formulaires de contact sont enregistrées
-        dans un fichier informatisé par Global Beauty Consulting pour faciliter les échanges avec
-        les prospects et clients de l’établissement.
+        dans un fichier informatisé par Brownskin Beauty pour faciliter les échanges avec les
+        prospects et clients de l’établissement.
       </p>
       <p>
         Elles sont destinées à tout gérant/employé de l’établissement susceptible d’avoir un échange

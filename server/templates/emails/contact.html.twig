@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}Email
+{% endblock %}
+
+
+{% block body %}
+	{% set fieldStyle = "margin: 1rem 0;" %}
+	{% set emStyle = "	font-size: 1.25rem;font-weight: bold;color: #a3610a;font-style:normal;" %}
+	{% set spanStyle = "font-size: 1.2rem;font-weight:bold;" %}
+	{% set preStyle = "font-family:sans-serif;font-weight: normal;font-size: 1.1rem;line-height: 1.5;" %}
+
+	<div>
+		<div style="{{fieldStyle}}">
+			<em style="{{emStyle}}">Prénom:</em>
+			<span style="{{spanStyle}}">{{firstName | capitalize}}</span>
+		</div>
+		<div style="{{fieldStyle}}">
+			<em style="{{emStyle}}">Nom:</em>
+			<span style="{{spanStyle}}">{{lastName | capitalize}}</span>
+		</div>
+		<div style="{{fieldStyle}}">
+			<em style="{{emStyle}}">Email:</em>
+			<span style="{{spanStyle}}">{{senderEmail}}</span>
+		</div>
+		<div style="{{fieldStyle}}">
+			<em style="{{emStyle}}">Objet</em>
+			<span style="{{spanStyle}}">Demande de contact</span>
+		</div>
+		<div style="{{fieldStyle}}">
+			<em style="{{emStyle}}">Message:</em>
+			<pre style="{{preStyle}}">{{message}}</pre>
+		</div>
+	</div>
+{% endblock %}

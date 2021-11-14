@@ -18,3 +18,13 @@ export interface FieldTouchedPayload {
   name: string;
   reducerName: keyof State;
 }
+
+export interface SetFieldErrorPayload {
+  reducerName: keyof State;
+  name: string;
+  errorMessage: string;
+}
+
+export interface ResetNotificationPayload {
+  reducerName: keyof State;
+}

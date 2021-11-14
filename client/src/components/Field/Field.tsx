@@ -13,7 +13,7 @@ export interface FieldProps {
   onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
   maxLength?: number;
   placeholder?: string;
-  reducerName?: keyof State;
+  reducerName?: 'contact';
   name: string;
   value?: string;
   autofocus?: boolean;

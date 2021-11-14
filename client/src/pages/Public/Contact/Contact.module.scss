@@ -21,5 +21,12 @@
     padding: 1rem 3rem;
     border-radius: 20rem;
     border: 2px solid;
+    transition: all 250ms ease;
+
+    &:hover {
+      background-color: $light-color;
+      color: $dark-color;
+      border-color: $light-color;
+    }
   }
 }

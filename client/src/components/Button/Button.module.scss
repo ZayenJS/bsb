@@ -14,4 +14,9 @@
   &:focus-visible {
     background-color: lighten($main-color, 5%);
   }
+
+  &:disabled {
+    background-color: $grey-color;
+    cursor: not-allowed;
+  }
 }

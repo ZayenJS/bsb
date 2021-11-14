@@ -6,6 +6,8 @@ export const useSendMail = () => {
   const dispatch = useDispatch();
   const { mailStatus, notification } = useSelector((state: State) => state.contact);
 
+  console.log({ mailStatus });
+
   return {
     sendMail: () => dispatch(sendMail({})),
     resetMail: () => dispatch(resetMail()),

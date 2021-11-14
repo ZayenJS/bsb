@@ -6,6 +6,10 @@ import {
   FieldTouchedAction,
   FieldTouchedPayload,
   HideCampaignBarAction,
+  ResetNotificationAction,
+  ResetNotificationPayload,
+  SetFieldErrorAction,
+  SetFieldErrorPayload,
 } from '.';
 import { ChangeValueAction, GlobalActionsEnum } from './global.actions';
 import { ChangeValuePayload } from './global.payloads';
@@ -35,5 +39,15 @@ export const changeDrawerStatus = (
 
 export const fieldTouched = (payload: FieldTouchedPayload): FieldTouchedAction => ({
   type: GlobalActionsEnum.FIELD_TOUCHED,
+  payload,
+});
+
+export const setFieldError = (payload: SetFieldErrorPayload): SetFieldErrorAction => ({
+  type: GlobalActionsEnum.SET_FIELD_ERROR,
+  payload,
+});
+
+export const resetNotification = (payload: ResetNotificationPayload): ResetNotificationAction => ({
+  type: GlobalActionsEnum.RESET_NOTIFICATION,
   payload,
 });

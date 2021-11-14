@@ -21,7 +21,7 @@
   @extend %Icon;
   display: block;
   padding: 0.5rem;
-  transition: all 50ms ease;
+  transition: all 170ms ease;
   background-color: transparent;
   border-radius: $medium-radius;
   overflow: hidden;
@@ -44,6 +44,8 @@
   }
 }
 .Instagram {
+  transition: none;
+
   &:hover {
     background: #f09433;
     background: -moz-linear-gradient(

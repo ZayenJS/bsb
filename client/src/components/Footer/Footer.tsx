@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../Logo/Logo';
-import OwnerInfos from '../OwnerInfos/OwnerInfos';
 import SocialNetworks from '../SocialNetworks/SocialNetworks';
 
 import classes from './Footer.module.scss';

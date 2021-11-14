@@ -1,70 +1,131 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { ErrorMessage } from '../constants';
+import { setFieldError } from '../store/actions';
 import { State } from '../store/reducers';
 
 export const useContactInfo = () => {
-  const [errors, setErrors] = useState({
-    email: '',
-    firstName: '',
-    lastName: '',
-    message: '',
-  });
   const { email, firstName, lastName, message } = useSelector((state: State) => state.contact);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (email.touched) {
-      if (!email.value)
-        return setErrors((prevErrors) => ({ ...prevErrors, email: 'Ce champ est obligatoire.' }));
-
-      if (!email.value.match(/[\w.-]+@\w+\.\w{2,}/g))
-        return setErrors((prevErrors) => ({ ...prevErrors, email: "Cet email n'est pas valide." }));
+      if (!email.value) {
+        dispatch(
+          setFieldError({
+            reducerName: 'contact',
+            name: 'email',
+            errorMessage: ErrorMessage.EMPTY_FIELD,
+          }),
+        );
+        return;
+      }
+      if (!email.value.match(/[\w.-]+@\w+\.\w{2,}/g)) {
+        dispatch(
+          setFieldError({
+            reducerName: 'contact',
+            name: 'email',
+            errorMessage: "Cet email n'est pas valide.",
+          }),
+        );
+        return;
+      }
     }
 
-    return setErrors((prevErrors) => ({ ...prevErrors, email: '' }));
-  }, [email.value, email.touched]);
+    if (email.value)
+      dispatch(setFieldError({ reducerName: 'contact', name: 'email', errorMessage: '' }));
+  }, [dispatch, email.value, email.touched]);
 
   useEffect(() => {
     if (firstName.touched) {
-      if (!firstName.value)
-        return setErrors((prevErrors) => ({
-          ...prevErrors,
-          firstName: 'Ce champ est obligatoire.',
-        }));
-
-      if (firstName.value.match(/[\d\W]+/g))
-        return setErrors((prevErrors) => ({
-          ...prevErrors,
-          firstName: 'Les chiffres et symboles sont interdits dans le prénom.',
-        }));
+      if (!firstName.value) {
+        dispatch(
+          setFieldError({
+            reducerName: 'contact',
+            name: 'firstName',
+            errorMessage: ErrorMessage.EMPTY_FIELD,
+          }),
+        );
+        return;
+      }
+      if (firstName.value.match(/[\d\W]+/g)) {
+        dispatch(
+          setFieldError({
+            reducerName: 'contact',
+            name: 'firstName',
+            errorMessage: ErrorMessage.INVALID_FIRSTNAME,
+          }),
+        );
+        return;
+      }
     }
 
-    return setErrors((prevErrors) => ({ ...prevErrors, firstName: '' }));
-  }, [firstName.touched, firstName.value]);
+    if (firstName.value)
+      dispatch(setFieldError({ reducerName: 'contact', name: 'firstName', errorMessage: '' }));
+  }, [dispatch, firstName.touched, firstName.value]);
 
   useEffect(() => {
     if (lastName.touched) {
-      if (!lastName.value)
-        return setErrors((prevErrors) => ({
-          ...prevErrors,
-          lastName: 'Ce champ est obligatoire.',
-        }));
-
-      if (lastName.value.match(/[\d\W]+/g))
-        return setErrors((prevErrors) => ({
-          ...prevErrors,
-          lastName: 'Les chiffres et symboles sont interdits dans le nom.',
-        }));
+      if (!lastName.value) {
+        dispatch(
+          setFieldError({
+            reducerName: 'contact',
+            name: 'lastName',
+            errorMessage: ErrorMessage.EMPTY_FIELD,
+          }),
+        );
+        return;
+      }
+      if (lastName.value.match(/[\d\W]+/g)) {
+        dispatch(
+          setFieldError({
+            reducerName: 'contact',
+            name: '',
+            errorMessage: ErrorMessage.INVALID_LASTNAME,
+          }),
+        );
+        return;
+      }
     }
 
-    return setErrors((prevErrors) => ({ ...prevErrors, lastName: '' }));
-  }, [lastName.touched, lastName.value]);
+    if (lastName.error && lastName.value)
+      dispatch(setFieldError({ reducerName: 'contact', name: 'lastName', errorMessage: '' }));
+  }, [dispatch, lastName.touched, lastName.value, lastName.error]);
 
   useEffect(() => {
-    if (!message.value && message.touched)
-      return setErrors((prevErrors) => ({ ...prevErrors, message: 'Ce champ est obligatoire.' }));
+    if (!message.value && message.touched) {
+      dispatch(
+        setFieldError({
+          reducerName: 'contact',
+          name: 'message',
+          errorMessage: ErrorMessage.EMPTY_FIELD,
+        }),
+      );
+      return;
+    }
 
-    return setErrors((prevErrors) => ({ ...prevErrors, message: '' }));
-  }, [message.touched, message.value]);
+    if (message.error && message.value)
+      dispatch(setFieldError({ reducerName: 'contact', name: 'message', errorMessage: '' }));
+  }, [dispatch, message.touched, message.value, message.error]);
 
-  return { errors };
+  return {
+    email: {
+      ...email,
+      name: 'email',
+    },
+    message: {
+      ...message,
+      name: 'message',
+    },
+    firstName: {
+      ...firstName,
+      name: 'firstName',
+    },
+    lastName: {
+      ...lastName,
+      name: 'lastName',
+    },
+    setError: (name: string, errorMessage: string) =>
+      dispatch(setFieldError({ reducerName: 'contact', name, errorMessage })),
+  };
 };

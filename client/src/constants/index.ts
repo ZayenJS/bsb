@@ -11,3 +11,9 @@ export const mediaQueries = {
   'large-height': matchMedia('(min-height: 768px)'),
   'xlarge-height': matchMedia('(min-height: 1024px)'),
 };
+
+export enum ErrorMessage {
+  EMPTY_FIELD = 'Ce champs est requis.',
+  INVALID_FIRSTNAME = 'Les chiffres et symboles sont interdits dans le prénom.',
+  INVALID_LASTNAME = 'Les chiffres et symboles sont interdits dans le nom.',
+}

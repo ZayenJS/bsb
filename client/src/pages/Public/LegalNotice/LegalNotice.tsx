@@ -14,7 +14,7 @@ const LegalNotice: FC<LegalNoticeProps> = () => {
       <Heading tag="h1">Mentions légales</Heading>
       <Heading tag="h2">Edition</Heading>
       <p>
-        Directeur de la publication : Olivia PAUl
+        Directeur de la publication : Olivia PAUL
         <br />
         Coordonnées :
         <address>
@@ -30,7 +30,7 @@ const LegalNotice: FC<LegalNoticeProps> = () => {
       <p>
         Le site www.brownskinbeauty.fr est hébergé par la société Hostinger:
         <br />
-        adresse <br />
+        HOSTINGER INTERNATIONAL LTD, 61 Lordou Vironos Street, 6023 Larnaca, Chypre. <br />
         Conception, design et développements: www.jimsagency.fr
       </p>
       <Heading tag="h2">Législation</Heading>

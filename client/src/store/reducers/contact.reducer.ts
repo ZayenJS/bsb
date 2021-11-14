@@ -5,6 +5,7 @@ import { ContactActions, ContactActionsEnum } from '../actions/contact';
 export interface FieldType {
   value: string;
   touched: boolean;
+  error: string;
 }
 
 interface Fields {
@@ -23,7 +24,7 @@ export interface ContactReducerState {
   notification: string;
 }
 
-const INITIAL_FIELD_VALUE = { value: '', touched: false };
+const INITIAL_FIELD_VALUE = { value: '', touched: false, error: '' };
 
 const INITIAL_STATE: ContactReducerState = {
   firstName: INITIAL_FIELD_VALUE,
@@ -87,13 +88,34 @@ const reducer = (
 
       return {
         ...state,
-        mailStatus: MailStatus.NOT_SENT,
-        notification: '',
         firstName: hasError ? state.firstName : INITIAL_FIELD_VALUE,
         lastName: hasError ? state.lastName : INITIAL_FIELD_VALUE,
         email: hasError ? state.email : INITIAL_FIELD_VALUE,
         message: hasError ? state.message : INITIAL_FIELD_VALUE,
       };
+    }
+
+    case GlobalActionsEnum.RESET_NOTIFICATION: {
+      if (action.payload.reducerName === 'contact')
+        return { ...state, notification: '', mailStatus: MailStatus.NOT_SENT };
+
+      return state;
+    }
+
+    case GlobalActionsEnum.SET_FIELD_ERROR: {
+      if (action.payload.reducerName === 'contact') {
+        const name = action.payload.name as keyof Fields;
+
+        return {
+          ...state,
+          [action.payload.name]: {
+            ...state[name],
+            error: action.payload.errorMessage,
+          },
+        };
+      }
+
+      return state;
     }
     default:
       return state;

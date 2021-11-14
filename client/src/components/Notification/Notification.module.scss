@@ -1,0 +1,48 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/keyframes';
+
+.Container {
+  position: fixed;
+  top: 11vh;
+  right: 1rem;
+  z-index: 500000;
+  padding: 1rem 2rem;
+  border: 2px solid;
+  border-radius: $medium-radius;
+  cursor: default;
+  background-color: #fff;
+  transform: translateX(50vw);
+
+  &.Hidden {
+    animation: slide-out-left-to-right 500ms forwards ease;
+  }
+
+  &.Visible {
+    animation: slide-in-right-to-left 500ms forwards ease;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+}
+
+.Error {
+  color: darken(red, 10%);
+  border-color: transparentize(red, 0.65);
+
+  &:before {
+    background-color: transparentize(red, 0.75);
+  }
+}
+
+.Success {
+  color: darken(green, 10%);
+  border-color: transparentize(green, 0.65);
+
+  &:before {
+    background-color: transparentize(green, 0.75);
+  }
+}

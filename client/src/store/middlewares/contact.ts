@@ -18,7 +18,9 @@ export const contact =
 
           action.payload.apiResponse = data;
 
-          next(action);
+          setTimeout(() => {
+            next(action);
+          }, 2500);
         } catch (error) {
           console.log(error);
         }

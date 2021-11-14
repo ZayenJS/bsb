@@ -1,7 +1,31 @@
 @import '../../../assets/scss/variables';
+@import '../../../assets/scss/placeholders';
 
 .Container {
-  max-width: $max-container-width;
+  padding: 4rem 0;
+  max-width: $max-container-width / 2;
   margin: auto;
   min-height: calc(100vh - $header-height);
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  a {
+    display: inline-block;
+    border-bottom: 2px solid $main-color;
+    transition: all 250ms ease;
+
+    &:hover {
+      color: $main-color;
+    }
+  }
+
+  p,
+  address {
+    @extend %paragraph;
+    font-size: 1.1rem;
+    margin: auto;
+    @extend %mobile-horizontal-padding;
+  }
 }
