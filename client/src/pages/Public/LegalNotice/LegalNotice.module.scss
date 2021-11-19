@@ -6,14 +6,15 @@
   margin: auto;
   min-height: calc(100vh - $header-height);
   line-height: 1.75;
-  padding-bottom: 4rem;
+  padding: 4rem 0;
 
   h2 {
     margin-bottom: 0;
   }
 
   p,
-  address {
+  address,
+  div {
     @extend %paragraph;
     font-size: 1.1rem;
     margin: auto;

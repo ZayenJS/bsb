@@ -5,7 +5,11 @@ import { contact } from './middlewares';
 import rootReducer from './reducers';
 
 const composeEnhancers = composeWithDevTools({ trace: true });
-const enhancers = composeEnhancers(applyMiddleware(contact));
+const middlewares = applyMiddleware(contact);
+
+let enhancers = composeEnhancers(middlewares);
+
+if (process.env.NODE_ENV === 'production') enhancers = middlewares;
 
 const store = createStore(rootReducer, enhancers);
 

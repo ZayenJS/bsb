@@ -22,7 +22,10 @@ export const contact =
             next(action);
           }, 2500);
         } catch (error) {
-          console.log(error);
+          action.payload.apiResponse = {
+            isSent: false,
+            message: 'Une erreur est survenue, merci de réessayer plus tard.',
+          };
         }
         break;
       }

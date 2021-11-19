@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { useHideCampaignBar } from '../../hooks/useHideCampaignBar';
 import { useTopBar } from '../../hooks/useTopBar';
 import Footer from '../Footer/Footer';

@@ -23,14 +23,12 @@ const Partners: FC<PartnersProps> = ({ brands }) => {
   });
 
   useEffect(() => {
-    let initialState = { ...state };
-
     if (mediaQueries['medium-width'].matches) {
-      initialState = { rows: 2, columns: 3, spacing: [2, 2] };
+      setState((prevState) => ({ ...prevState, rows: 2, columns: 3, spacing: [2, 2] }));
     }
+  }, []);
 
-    setState(initialState);
-
+  useEffect(() => {
     const mediumMQHandler = (event: MediaQueryListEvent) => {
       if (event.matches) {
         return setState((prevState) => ({ ...prevState, rows: 2, columns: 3, spacing: [2, 2] }));

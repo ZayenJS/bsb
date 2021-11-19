@@ -55,6 +55,8 @@ const LetsMeet: FC<LetsMeetProps> = ({ children }) => {
     setTimeout(resetMail, 10);
   }
 
+  const hasError = !!(email.error || firstName.error || lastName.error || message.error);
+
   return (
     <>
       <section id="message" className={classes.Container}>
@@ -122,7 +124,7 @@ const LetsMeet: FC<LetsMeetProps> = ({ children }) => {
                   onBlur={touchMessage}
                 />
               </div>
-              <Button disabled={!!notification} className={classes.Button}>
+              <Button disabled={!!notification || hasError} className={classes.Button}>
                 {state.loading ? (
                   <div className={classes.Loader}>
                     Envoi

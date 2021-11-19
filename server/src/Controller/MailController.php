@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Exception;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -77,7 +78,15 @@ public function index(Request $request, MailerInterface $mailer): Response {
       'message' => $message,
     ]);
 
-  $mailer->send($email);
+  try {
+    $mailer->send($email);
+
+  } catch (Exception $e) {
+    return $this->json([
+      'isSent' => false,
+      'message' => "Une erreur est survenue, merci de réessayer plus tard.",
+    ]);
+  }
 
   return $this->json([
     'isSent' => true,

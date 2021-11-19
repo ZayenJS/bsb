@@ -46,10 +46,15 @@
 
 .Links {
   @include flex(center, center, row wrap);
+  gap: 2rem;
   width: 100%;
-  gap: 4rem;
   margin-top: 4rem;
   font-weight: bold;
+
+  @include lg {
+    @include flex(center, center, row wrap);
+    gap: 4rem;
+  }
 
   a {
     transition: all 250ms ease;

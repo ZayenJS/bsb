@@ -1,10 +1,7 @@
-import { ChangeEvent, FC, FocusEvent, useRef, useState } from 'react';
+import { ChangeEvent, FC, FocusEvent } from 'react';
 import { useChangeValue } from '../../hooks/useChangeValue';
-import { State } from '../../store/reducers';
 
 import classes from './Field.module.scss';
-
-// import { FieldPropsFromRedux } from '../../containers/components/Field/Field';
 
 export interface FieldProps {
   id?: string;

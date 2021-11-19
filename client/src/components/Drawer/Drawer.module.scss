@@ -118,5 +118,10 @@
 
   strong {
     margin-bottom: 0;
+    font-size: 1.1rem;
+
+    @include md {
+      font-size: 1.25rem;
+    }
   }
 }

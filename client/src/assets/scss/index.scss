@@ -7,6 +7,11 @@ body,
 #root {
   min-height: 100vh;
   scroll-behavior: smooth;
+
+  ::selection {
+    color: lighten($secondary-color, 20%);
+    background-color: darken($main-color, 15%);
+  }
 }
 
 * {

@@ -14,6 +14,8 @@ const Services: FC<ServicesProps> = () => {
   return (
     <div className={classes.Container}>
       <Helmet>
+        <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-156091955-1"></script>
+        <script src="public/js/google-analytics.min.js" defer></script>
         <title>Services | {WEBSITE_NAME} </title>
       </Helmet>
       <figure></figure>

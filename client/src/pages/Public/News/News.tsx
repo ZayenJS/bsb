@@ -34,6 +34,8 @@ const News: FC<NewsProps> = () => {
   return (
     <div className={classes.Container}>
       <Helmet>
+        <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-156091955-1"></script>
+        <script src="public/js/google-analytics.min.js" defer></script>
         <title>Actualités | {WEBSITE_NAME} </title>
       </Helmet>
       <Partners brands={partners} />
